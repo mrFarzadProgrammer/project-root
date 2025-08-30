@@ -1,8 +1,7 @@
-from sqlalchemy import Column, Integer, String, Text, BigInteger, Boolean, ForeignKey, TIMESTAMP, ARRAY
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, Text, BigInteger, String, ARRAY, TIMESTAMP, ForeignKey, Boolean
+from services.shared.base import Base
 from sqlalchemy.sql import func
 
-Base = declarative_base()
 
 class User(Base):
     __tablename__ = "users"

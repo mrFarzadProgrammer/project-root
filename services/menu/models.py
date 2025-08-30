@@ -1,11 +1,12 @@
-from sqlalchemy import Column, Integer, Text, Boolean, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, Text, BigInteger, String, ARRAY, TIMESTAMP, ForeignKey, Boolean
+from services.shared.base import Base
+from sqlalchemy.sql import func
 
-Base = declarative_base()
 
 class MenuItem(Base):
     __tablename__ = "menu_items"
-
+    __table_args__ = {'extend_existing': True}
+    
     id = Column(Integer, primary_key=True)
     cafe_id = Column(Integer, ForeignKey("cafes.id"))
     name = Column(Text, nullable=False)
@@ -13,3 +14,4 @@ class MenuItem(Base):
     price = Column(Integer)
     category = Column(Text)
     is_available = Column(Boolean, default=True)
+    
